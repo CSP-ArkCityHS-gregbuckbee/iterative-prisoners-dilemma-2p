@@ -9,7 +9,7 @@
 
 team_name = 'DaBearsGOD' # Only 10 chars displayed.
 strategy_name = 'Mitch for a TD'
-strategy_description = 'Mitch Trubisky will either pass to Burton or toss it to Cohen'
+strategy_description = 'We will collude the first time and then betray every time unless they colluded'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
