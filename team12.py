@@ -6,18 +6,25 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'The name the team gives to itself' # Only 10 chars displayed.
-strategy_name = 'The name the team gives to this strategy'
-strategy_description = 'How does this strategy decide?'
+team_name = 'MC' # Only 10 chars displayed.
+strategy_name = 'colude if im ahead'
+strategy_description = 'Betray betray Betray Colude'
     
 def move(my_history, their_history, my_score, their_score):
+    if my_score >= 500:
+        return 'c'
+    elif their_score<=450:
+        return 'b'
+    else:
+        return 'b'
     ''' Arguments accepted: my_history, their_history are strings.
     my_score, their_score are ints.
+    
     
     Make my move.
     Returns 'c' or 'b'. 
     '''
-
+    
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
     # The first round between these two players is my_history[0] and their_history[0].
@@ -34,6 +41,12 @@ def test_move(my_history, their_history, my_score, their_score, result):
     from this module. Prints error if return value != result.
     Returns True or False, dpending on whether result was as expected.
     '''
+    if my_score >= 500:
+        return 'c'
+    elif their_score<=450:
+        return 'b'
+    else:
+        return 'b'
     real_result = move(my_history, their_history, my_score, their_score)
     if real_result == result:
         return True
@@ -56,13 +69,14 @@ if __name__ == '__main__':
          print 'Test passed'
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
-              their_history='ccc', 
+              their_history='ccc',
+              my_score=0, 
+              their_score=0,
+              result='b')   
               # Note the scores are for testing move().
               # The history and scores don't need to match unless
               # that is relevant to the test of move(). Here,
               # the simulation (if working correctly) would have awarded 
               # 300 to me and -750 to them. This test will pass if and only if
               # move('bbb', 'ccc', 0, 0) returns 'b'.
-              my_score=0, 
-              their_score=0,
-              result='b')             
+           
